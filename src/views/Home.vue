@@ -1,18 +1,21 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="content-header">
+    <h1 class="content-header-title">Backups</h1>
+    <div class="content-header-actions">
+      <div class="btn btn-primary">Add Backup</div>
+    </div>
   </div>
+
+  <BackupList />
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import BackupList from '@/components/BackupList'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    BackupList
   }
 }
 </script>

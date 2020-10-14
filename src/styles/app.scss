@@ -1,0 +1,35 @@
+@import '~normalize.css/normalize.css';
+
+@import './variables';
+@import './bootstrap';
+
+@import './base';
+@import './typography';
+@import './icon';
+@import './sidebar';
+@import './topbar';
+@import './card';
+@import './backup';
+
+.content-container {
+  max-width: 1200px;
+  padding-top: 26px;
+  padding-left: $grid-gutter-width / 2;
+  padding-right: $grid-gutter-width / 2;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+
+.content-header-title {
+  color: $primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  margin-bottom: 0;
+}

@@ -1,0 +1,60 @@
+// Colors
+$white:    #fff;
+$gray-100: hsl(212, 20%, 98%);
+$gray-200: hsl(212, 20%, 93%);
+$gray-300: hsl(212, 20%, 89%);
+$gray-400: hsl(212, 20%, 83%);
+$gray-500: hsl(212, 20%, 71%);
+$gray-600: hsl(212, 20%, 50%);
+$gray-700: hsl(212, 20%,  31%);
+$gray-800: hsl(212, 20%, 23%);
+$gray-900: hsl(212, 20%, 15%);
+// $black:    #000;
+
+// Theme Colors
+$primary: #1D4775;
+$primary-dark: #143252;
+$primary-darker: #0D2744;
+
+$body-bg: #E8EAEE;
+$body-color: #333F4D;
+
+$dark: $body-color;
+
+// Components
+$border-radius:               6px;
+$border-radius-lg:            .3rem;
+$border-radius-sm:            .2rem;
+
+// Typography
+$font-family-sans-serif: 'Open Sans';
+$text-muted: $gray-600;
+
+// Topbar
+$topbar-bg: white;
+$topbar-height: 100px;
+
+// Sidebar
+$sidebar-width: 280px;
+// $sidebar-color: #6E84A3;
+// $sidebar-hover-color: #8fa6c5;
+
+$sidebar-color:                 #6E84A3;
+$sidebar-hover-color:           rgba($sidebar-color, .75);
+$sidebar-active-color:          $white;
+$sidebar-active-bg-color:       #0D2744;
+$sidebar-disabled-color:        rgba($sidebar-color, .25);
+// $sidebar-toggler-border-color:  rgba($white, .1) !default;
+
+// $nav-link-padding-y: 0.8rem;
+
+// Card
+$card-border-width:                 0;
+$card-border-radius:                $border-radius;
+$card-border-color:                 none;
+$card-spacer-y:                     32px;
+$card-spacer-x:                     24px;
+
+// Button
+$input-btn-padding-y: .5rem;
+$input-btn-padding-x: 1.5rem;
