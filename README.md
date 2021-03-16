@@ -1,24 +1,19 @@
-# duplicati-webapp
+# Duplicati UI
+An study and proposal of a new user interface for [Duplicati](https://duplicati.com/).
 
-## Project setup
+## Development
+
+### Requirements
+Vue CLI 4.x requires Node.js version 8.9 or above (v10+ recommended).
+
+### Setup
+Install NPM dependencies with:
 ```
 npm install
 ```
-
-### Compiles and hot-reloads for development
+Then start the development server:
 ```
 npm run serve
 ```
+It expects and is configured to proxy unknown requests to a Duplicati server runnign on localhost:8200. 
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
