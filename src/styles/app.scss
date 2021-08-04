@@ -1,35 +1,79 @@
 @import '~normalize.css/normalize.css';
 
-@import './variables';
-@import './bootstrap';
+// @import "~bootstrap/scss/functions";
 
-@import './base';
-@import './typography';
-@import './icon';
-@import './sidebar';
-@import './topbar';
-@import './card';
-@import './backup';
+// @import './variables';
 
-.content-container {
-  max-width: 1200px;
-  padding-top: 26px;
-  padding-left: $grid-gutter-width / 2;
-  padding-right: $grid-gutter-width / 2;
-  margin-left: auto;
-  margin-right: auto;
-}
+// @import "~bootstrap/scss/variables";
+// @import "~bootstrap/scss/mixins";
+// @import "~bootstrap/scss/utilities";
 
-.content-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 36px;
-}
+// Layout & components
+// @import "~bootstrap/scss/root";
+// @import "~bootstrap/scss/reboot";
+// @import "~bootstrap/scss/type";
+// @import "~bootstrap/scss/images";
+// @import "~bootstrap/scss/containers";
+// @import "~bootstrap/scss/grid";
+// @import "~bootstrap/scss/tables";
+// @import "~bootstrap/scss/forms";
+// @import "~bootstrap/scss/buttons";
+// @import "~bootstrap/scss/transitions";
+// @import "~bootstrap/scss/dropdown";
+// @import "~bootstrap/scss/button-group";
+// @import "~bootstrap/scss/nav";
+// @import "~bootstrap/scss/navbar";
+// @import "~bootstrap/scss/card";
+// @import "~bootstrap/scss/accordion";
+// @import "~bootstrap/scss/breadcrumb";
+// @import "~bootstrap/scss/pagination";
+// @import "~bootstrap/scss/badge";
+// @import "~bootstrap/scss/alert";
+// @import "~bootstrap/scss/progress";
+// @import "~bootstrap/scss/list-group";
+// @import "~bootstrap/scss/close";
+// @import "~bootstrap/scss/toasts";
+// @import "~bootstrap/scss/modal";
+// @import "~bootstrap/scss/tooltip";
+// @import "~bootstrap/scss/popover";
+// @import "~bootstrap/scss/carousel";
+// @import "~bootstrap/scss/spinners";
+// @import "~bootstrap/scss/offcanvas";
+// @import "~bootstrap/scss/placeholders";
 
-.content-header-title {
-  color: $primary;
-  font-size: $font-size-base;
-  font-weight: $font-weight-normal;
-  margin-bottom: 0;
-}
+// Helpers
+// @import "~bootstrap/scss/helpers";
+
+// Utilities
+// @import "~bootstrap/scss/utilities/api";
+
+// @import './base';
+// @import './typography';
+// @import './icon';
+// @import './sidebar';
+// @import './topbar';
+// @import './card';
+// @import './backup';
+
+// .content-container {
+//   max-width: 1200px;
+//   padding-top: 26px;
+//   padding-left: $grid-gutter-width / 2;
+//   padding-right: $grid-gutter-width / 2;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+
+// .content-header {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   margin-bottom: 36px;
+// }
+
+// .content-header-title {
+//   color: $primary;
+//   font-size: $font-size-base;
+//   font-weight: $font-weight-normal;
+//   margin-bottom: 0;
+// }

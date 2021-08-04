@@ -3,69 +3,91 @@
   <Main />
 
   <div>
-    <div
-      class="modal fade show"
-      :class="{ show: hasDialog }"
-      :style="{ display: hasDialog ? 'block' : undefined }"
-    >
-      <component
-        v-if="hasDialog"
-        :is="$store.state.dialog.dialogs[0]"
-      />
-    </div>
+    <transition name="fade">
+      <div
+        v-show="hasDialog"
+        class="modal"
+      >
+        <transition name="scale" mode="out-in">
+          <component
+            :is="firstDialog?.component"
+            :key="firstDialog?.id"
+            :resolve="firstDialog?.resolve"
+            :reject="firstDialog?.reject"
+          />
+        </transition>
+      </div>
+      </transition>
   </div>
 
-  <div
-    class="modal-backdrop fade"
-    :class="{ show: hasDialog }"
-  ></div>
+  <ModalBackdrop :show="hasDialog" />
 </template>
 
 <script>
 import axios from '@/axios'
-import { markRaw } from 'vue'
+import { mapGetters } from 'vuex'
+import DialogService from '@/services/dialog'
 
 import Main from '@/components/Main'
 import Sidebar from '@/components/Sidebar'
 import FirstRunSetupDialog from '@/components/dialogs/FirstRunSetupDialog'
+import ModalBackdrop from '@/components/ModalBackdrop'
 
 export default {
   components: {
-    Main, Sidebar
+    Main,
+    Sidebar,
+    ModalBackdrop
   },
+
+  data: () => ({
+    showModal: true
+  }),
 
   computed: {
-    hasDialog () {
-      return this.$store.state.dialog.dialogs.length >= 1
-    }
+    ...mapGetters('dialog', [
+      'firstDialog',
+      'hasDialog'
+    ])
   },
 
-  created () {
-    const that = this
+  methods: {
 
-    axios.get('/serversettings').then(function (data) {
-      // @TODO: --force-actual-date
-      // @TODO: Apply throttle settings: max-upload-speed, max-download-speed
+  },
 
-      const asked = data.data['has-asked-for-password-protection']
-      const pass = data.data['server-passphrase']
+  async created () {
+    const data = await axios.get('/serversettings')
+    // @TODO: --force-actual-date
+    // @TODO: Apply throttle settings: max-upload-speed, max-download-speed
 
-      if (!asked && pass === '') {
-        that.$store.commit('dialog/add', markRaw(FirstRunSetupDialog))
+    const asked = data.data['has-asked-for-password-protection']
+    const pass = data.data['server-passphrase']
 
-        // DialogService.dialog(
-        //   gettextCatalog.getString('First run setup'),
-        //   gettextCatalog.getString('If your machine is in a multi-user environment (i.e. the machine has more than one account), you need to set a password to prevent other users from accessing data on your account.\nDo you want to set a password now?'),
-        //   [gettextCatalog.getString('No, my machine has only a single account'), gettextCatalog.getString('Yes')],
-        //   function(btn) {
-        //     AppService.patch('/serversettings', { 'has-asked-for-password-protection': 'true'}, {'headers': {'Content-Type': 'application/json'}});
-        //     if (btn == 1) {
-        //       $location.path('/settings');
-        //     }
-        //   }
-        // );
-      }
-    })
+    if (asked || pass !== '') {
+      return
+    }
+
+    try {
+      await DialogService.component(FirstRunSetupDialog)
+
+      this.$router.push({ name: 'Settings' })
+    } catch (e) { }
+
+    axios.patch('/serversettings', { 'has-asked-for-password-protection': true })
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

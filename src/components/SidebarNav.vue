@@ -1,14 +1,19 @@
 <template>
-  <nav class="sidebar-nav">
-    <ul class="nav flex-column">
-      <li v-for="item in items" :key="item.title" class="nav-item">
-        <router-link active-class="active" :to="item.to" class="nav-link">
-          <component :is="item.icon" />
-          <span>{{ item.title }}</span>
-        </router-link>
-      </li>
-    </ul>
-  </nav>
+  <ul :class="$style.nav">
+    <li v-for="item in items" :key="item.title">
+      <router-link
+        active-class="active"
+        :to="item.to"
+        :class="$style.link"
+      >
+        <component
+          :is="item.icon"
+          :class="$style.icon"
+        />
+        <span>{{ item.title }}</span>
+      </router-link>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -42,3 +47,37 @@ export default {
   })
 }
 </script>
+
+<style lang="scss" module>
+  @import "@/styles/_variables.scss";
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding-left: 0px;
+  }
+
+  .link {
+    display: flex;
+    align-items: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 28px;
+    color: #6E84A3;
+    text-decoration: none;
+
+    &:hover {
+      color: rgba(#6E84A3, .75);
+    }
+
+    &:global(.active) {
+      color: white;
+      background-color: $brand-darker;
+    }
+  }
+
+  .icon {
+    margin-right: 16px;
+  }
+</style>

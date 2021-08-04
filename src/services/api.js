@@ -1,4 +1,4 @@
-import axios from '@/plugins/axios'
+import axios from '@/axios'
 import { readCookie } from '@/util'
 
 const url = 'http://localhost:8080/api/v1/'

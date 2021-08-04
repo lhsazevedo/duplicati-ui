@@ -1,5 +1,5 @@
 <template>
-  <main class="main">
+  <main>
     <Topbar />
     <div class="container content-container">
       <div class="content">
@@ -18,3 +18,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  @import "@/styles/_variables.scss";
+
+  main {
+    margin-left: $sidebar-width;
+  }
+</style>

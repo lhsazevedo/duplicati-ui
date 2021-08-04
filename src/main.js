@@ -5,7 +5,8 @@ import store from './store'
 // import * as api from './services/api'
 // import * as server from './services/server.js'
 
-import '@/styles/app.scss'
+// import '@/styles/app.scss'
+import '@/styles/_global.scss'
 
 // async function init () {
 //   api.init()
