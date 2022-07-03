@@ -1,5 +1,13 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <PageHeader title="About" />
 </template>
+
+<script>
+import PageHeader from '@/components/PageHeader.vue'
+
+export default {
+  components: {
+    PageHeader
+  }
+}
+</script>

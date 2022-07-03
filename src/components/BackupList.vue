@@ -1,11 +1,12 @@
 <template>
-  <ul class="backup-list">
-    <li v-for="backup in parsedBackups" :key="backup.title" class="backup-list-item">
-      <router-link to="/backup-item" class="backup-link">
-        <BackupCard :title="backup.title" :running="backup.running" :status="backup.status" />
-      </router-link>
-    </li>
-  </ul>
+  <div
+    v-for="{ Backup } in $store.state.server.backups"
+    :key="Backup.ID"
+  >
+    <router-link :to="`/backup/${Backup.ID}`" class="backup-link">
+      <BackupCard :title="Backup.Name" status="stopped" />
+    </router-link>
+  </div>
 </template>
 
 <script>
@@ -20,17 +21,23 @@ export default {
   }),
 
   computed: {
-    parsedBackups () {
-      if (!this.$store.state.server.backups.length) {
-        return []
-      }
+    // parsedBackups () {
+    //   if (!this.$store.state.server.backups.length) {
+    //     return []
+    //   }
 
-      return this.$store.state.server.backups.map(backup => {
-        return {
-          title: backup.Backup.Name
-        }
-      })
-    }
+    //   return this.$store.state.server.backups.map(backup => {
+    //     return {
+    //       title: backup.Backup.Name
+    //     }
+    //   })
+    // }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .list-item {
+    width: 33.3333%;
+  }
+</style>

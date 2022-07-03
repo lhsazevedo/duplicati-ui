@@ -21,3 +21,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  svg {
+    display: inline;
+  }
+</style>

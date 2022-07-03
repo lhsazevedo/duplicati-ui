@@ -9,6 +9,10 @@
 
 <script>
 export default {
+  props: {
+
+  },
+
   setup () {
     return {
       tag: 'button'
@@ -23,8 +27,8 @@ export default {
 
   .button {
     display: inline-flex;
-    color: $brand;
-    background-color: transparent;
+    color: #4B5563;
+    background-color: #F3F4F6;
     font-size: .875rem;
     padding: .5rem 1rem;
     border-color: transparent;
@@ -32,7 +36,16 @@ export default {
     cursor: pointer;
 
     &:hover {
-      background-color: color.scale($brand, $lightness: 90%);
+      background-color: #E5E7EB;
+    }
+
+    &:global(.primary) {
+      background-color: $brand;
+      color: white;
+
+      &:hover {
+        background-color: color.scale($brand, $lightness: -10%);
+      }
     }
   }
 

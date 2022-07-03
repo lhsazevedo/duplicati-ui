@@ -27,6 +27,7 @@
 import axios from '@/axios'
 import { mapGetters } from 'vuex'
 import DialogService from '@/services/dialog'
+import store from '@/store'
 
 import Main from '@/components/Main'
 import Sidebar from '@/components/Sidebar'
@@ -52,26 +53,33 @@ export default {
   },
 
   methods: {
+    async checkFirstRun (settings) {
+      const asked = settings['has-asked-for-password-protection']
+      const pass = settings['server-passphrase']
 
+      axios.get('/backups').then((res) => {
+        console.log(res.data)
+        store.commit('server/setBackups', res.data)
+      })
+
+      if (asked || pass !== '') {
+        return
+      }
+
+      try {
+        await DialogService.component(FirstRunSetupDialog)
+
+        this.$router.push({ name: 'Settings' })
+      } catch (e) { }
+    }
   },
 
   async created () {
-    const data = await axios.get('/serversettings')
+    const settings = await axios.get('/serversettings').then(res => res.data)
     // @TODO: --force-actual-date
     // @TODO: Apply throttle settings: max-upload-speed, max-download-speed
 
-    const asked = data.data['has-asked-for-password-protection']
-    const pass = data.data['server-passphrase']
-
-    if (asked || pass !== '') {
-      return
-    }
-
-    try {
-      await DialogService.component(FirstRunSetupDialog)
-
-      this.$router.push({ name: 'Settings' })
-    } catch (e) { }
+    this.checkFirstRun(settings)
 
     axios.patch('/serversettings', { 'has-asked-for-password-protection': true })
   }

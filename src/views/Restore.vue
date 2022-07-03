@@ -1,5 +1,13 @@
 <template>
-  <div class="content-header">
-    <h1 class="content-header-title">Restore</h1>
-  </div>
+  <PageHeader title="Restore" />
 </template>
+
+<script>
+import PageHeader from '@/components/PageHeader.vue'
+
+export default {
+  components: {
+    PageHeader
+  }
+}
+</script>

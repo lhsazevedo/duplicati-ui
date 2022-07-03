@@ -1,10 +1,8 @@
 <template>
   <main>
     <Topbar />
-    <div class="container content-container">
-      <div class="content">
-        <router-view/>
-      </div>
+    <div class="content">
+      <router-view/>
     </div>
   </main>
 </template>
