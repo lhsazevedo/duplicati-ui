@@ -30,8 +30,9 @@
       <Button
         class="light"
         :class="{ disabled: status === 'running' }"
-        v-text="status === 'running' ? 'Running...' : 'Run now'"
-      />
+      >
+        {{ status === 'running' ? 'Running...' : 'Run now' }}
+      </Button>
     </div>
   </Card>
 </template>

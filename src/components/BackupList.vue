@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import BackupCard from './BackupCard'
+import BackupCard from './BackupCard.vue'
 
 export default {
   components: {

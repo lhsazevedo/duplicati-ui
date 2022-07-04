@@ -18,10 +18,10 @@
 
 <script>
 import { markRaw } from 'vue'
-import ArchiveIcon from '@/components/icons/Archive'
-import RestoreIcon from '@/components/icons/Restore'
-import CogIcon from '@/components/icons/Cog'
-import InfoIcon from '@/components/icons/Info'
+import ArchiveIcon from '@/components/icons/Archive.vue'
+import RestoreIcon from '@/components/icons/Restore.vue'
+import CogIcon from '@/components/icons/Cog.vue'
+import InfoIcon from '@/components/icons/Info.vue'
 
 export default {
   data: () => ({

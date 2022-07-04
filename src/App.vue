@@ -29,10 +29,10 @@ import { mapGetters } from 'vuex'
 import DialogService from '@/services/dialog'
 import store from '@/store'
 
-import Main from '@/components/Main'
-import Sidebar from '@/components/Sidebar'
-import FirstRunSetupDialog from '@/components/dialogs/FirstRunSetupDialog'
-import ModalBackdrop from '@/components/ModalBackdrop'
+import Main from '@/components/Main.vue'
+import Sidebar from '@/components/Sidebar.vue'
+import FirstRunSetupDialog from '@/components/dialogs/FirstRunSetupDialog.vue'
+import ModalBackdrop from '@/components/ModalBackdrop.vue'
 
 export default {
   components: {

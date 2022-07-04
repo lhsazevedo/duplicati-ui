@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import SidebarNav from './SidebarNav'
+import SidebarNav from './SidebarNav.vue'
 
 export default {
   components: {

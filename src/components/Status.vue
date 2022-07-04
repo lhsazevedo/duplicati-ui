@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import Success from './icons/status/Success'
-import Running from './icons/status/Running'
-import Error from './icons/status/Error'
+import Success from './icons/status/Success.vue'
+import Running from './icons/status/Running.vue'
+import Error from './icons/status/Error.vue'
 
 export default {
   components: {

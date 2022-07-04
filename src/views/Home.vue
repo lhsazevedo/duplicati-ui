@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import BackupList from '@/components/BackupList'
+import BackupList from '@/components/BackupList.vue'
 import PageHeader from '@/components/PageHeader.vue'
 
 export default {
