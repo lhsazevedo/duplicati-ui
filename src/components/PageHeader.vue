@@ -5,7 +5,7 @@
       v-if="actions.length"
       class="actions"
     >
-      <Button
+      <Btn
         v-for="action in actions"
         :key="action.title"
         class="primary"
@@ -16,11 +16,11 @@
 </template>
 
 <script>
-import Button from '@/components/Button.vue'
+import Btn from '@/components/Btn.vue'
 
 export default {
   components: {
-    Button
+    Btn
   },
 
   props: {

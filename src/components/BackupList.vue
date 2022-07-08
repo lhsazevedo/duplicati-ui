@@ -4,7 +4,7 @@
     :key="Backup.ID"
   >
     <router-link :to="`/backup/${Backup.ID}`" class="backup-link">
-      <BackupCard :title="Backup.Name" status="stopped" />
+      <BackupCard :backup="Backup" :title="Backup.Name" status="stopped" />
     </router-link>
   </div>
 </template>

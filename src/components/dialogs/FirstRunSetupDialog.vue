@@ -10,20 +10,20 @@
     </div>
 
     <div :class="$style.actions">
-        <Button @click="reject()">No, my machine has only a single account</Button>
-        <Button @click="resolve()">Yes</Button>
+        <Btn @click="reject()">No, my machine has only a single account</Btn>
+        <Btn @click="resolve()">Yes</Btn>
       </div>
   </div>
 </template>
 
 <script>
-import Button from '@/components/Button.vue'
+import Btn from '@/components/Btn.vue'
 
 export default {
   props: ['resolve', 'reject'],
 
   components: {
-    Button
+    Btn
   }
 }
 </script>
