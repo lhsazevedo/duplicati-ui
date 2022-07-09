@@ -50,8 +50,6 @@
 import Btn from './Btn.vue'
 import Card from './Card.vue'
 import Status from './Status.vue'
-// import dayjs from 'dayjs'
-import { defineProps } from 'vue'
 import { parseDate } from '@/util'
 
 const props = defineProps({

@@ -10,10 +10,10 @@
       >
         <transition name="scale" mode="out-in">
           <component
-            :is="firstDialog?.component"
-            :key="firstDialog?.id"
-            :resolve="firstDialog?.resolve"
-            :reject="firstDialog?.reject"
+            :is="backups[0]?.component"
+            :key="backups[0]?.id"
+            :resolve="backups[0]?.resolve"
+            :reject="backups[0]?.reject"
           />
         </transition>
       </div>
@@ -25,9 +25,9 @@
 
 <script>
 import axios from '@/axios'
-import { mapGetters } from 'vuex'
 import DialogService from '@/services/dialog'
-import store from '@/store'
+import { mapState, mapWritableState } from 'pinia'
+import { useStore } from '@/store'
 
 import Main from '@/components/Main.vue'
 import Sidebar from '@/components/Sidebar.vue'
@@ -46,8 +46,10 @@ export default {
   }),
 
   computed: {
-    ...mapGetters('dialog', [
-      'firstDialog',
+    ...mapWritableState(useStore, [
+      'backups'
+    ]),
+    ...mapState(useStore, [
       'hasDialog'
     ])
   },
@@ -58,8 +60,7 @@ export default {
       const pass = settings['server-passphrase']
 
       axios.get('/backups').then((res) => {
-        console.log(res.data)
-        store.commit('server/setBackups', res.data)
+        this.backups = res.data
       })
 
       if (asked || pass !== '') {
@@ -74,7 +75,7 @@ export default {
     }
   },
 
-  async created () {
+  async mounted () {
     const settings = await axios.get('/serversettings').then(res => res.data)
     // @TODO: --force-actual-date
     // @TODO: Apply throttle settings: max-upload-speed, max-download-speed

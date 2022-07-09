@@ -1,6 +1,6 @@
 <template>
   <div
-    v-for="{ Backup } in $store.state.server.backups"
+    v-for="{ Backup } in backups"
     :key="Backup.ID"
   >
     <router-link :to="`/backup/${Backup.ID}`" class="backup-link">
@@ -11,6 +11,8 @@
 
 <script>
 import BackupCard from './BackupCard.vue'
+import { mapState } from 'pinia'
+import { useStore } from '@/store'
 
 export default {
   components: {
@@ -21,17 +23,9 @@ export default {
   }),
 
   computed: {
-    // parsedBackups () {
-    //   if (!this.$store.state.server.backups.length) {
-    //     return []
-    //   }
-
-    //   return this.$store.state.server.backups.map(backup => {
-    //     return {
-    //       title: backup.Backup.Name
-    //     }
-    //   })
-    // }
+    ...mapState(useStore, [
+      'backups'
+    ])
   }
 }
 </script>
