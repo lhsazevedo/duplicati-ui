@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <div class="container">
-      <PageHeader title="Backups" :actions="actions" />
-      <BackupList />
-    </div>
+  <div class="container">
+    <PageHeader title="Backups" :actions="actions" />
+    <BackupList />
   </div>
 </template>
 
@@ -19,7 +17,7 @@ export default {
 
   data: () => ({
     actions: [
-      { title: 'Add Backup' }
+      { title: 'Add backup' }
     ]
   })
 }

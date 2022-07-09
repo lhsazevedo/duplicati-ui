@@ -6,11 +6,12 @@
       class="actions"
     >
       <Btn
-        v-for="action in actions"
+        v-for="action in [...actions].reverse()"
         :key="action.title"
         class="primary"
-        v-text="action.title"
-      />
+      >
+        {{ action.title }}
+      </Btn>
     </div>
   </div>
 </template>

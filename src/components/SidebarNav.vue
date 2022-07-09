@@ -56,6 +56,7 @@ export default {
     flex-direction: column;
     list-style: none;
     padding-left: 0px;
+    margin-top: 16px;
   }
 
   .link {

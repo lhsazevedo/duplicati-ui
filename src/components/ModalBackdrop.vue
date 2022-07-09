@@ -3,7 +3,7 @@
     <div
       v-if="show"
       :class="{ [$style.backdrop]: true }"
-    />
+    ></div>
   </transition>
 </template>
 
