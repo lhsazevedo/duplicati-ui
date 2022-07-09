@@ -1,11 +1,13 @@
 <template>
   <div class="container">
     <PageHeader :title="'Backup > ' + title" :actions="[{ title: 'Run now' }, { title: 'Restore' }]" />
+    <TabsBar />
   </div>
 </template>
 
 <script setup>
 import PageHeader from '@/components/PageHeader.vue'
+import TabsBar from '@/components/TabsBar.vue'
 import axios from '@/axios'
 import { useRoute } from 'vue-router'
 import { ref, computed } from 'vue'
