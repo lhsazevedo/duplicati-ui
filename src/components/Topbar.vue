@@ -1,10 +1,23 @@
 <template>
   <header class="topbar">
     <div class="container">
-      No scheduled tasks
+      <template v-if="store?.serverState?.ActiveTask">
+        <template v-if="store?.activeBackup">
+          {{ store.activeBackup.Backup.Name }}: &lt;StateText&gt;
+        </template>
+        <!-- TODO: v-else -->
+      </template>
+      <template v-else>No scheduled tasks</template>
     </div>
   </header>
 </template>
+
+<script setup>
+import { useStore } from '@/store';
+
+const store = useStore()
+
+</script>
 
 <style lang="scss" scoped>
   @import "@/styles/_variables.scss";

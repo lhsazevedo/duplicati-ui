@@ -26,6 +26,7 @@
 <script>
 import axios from '@/axios'
 import DialogService from '@/services/dialog'
+import { createServerStatus } from './services/serverStatus'
 import { mapState, mapWritableState } from 'pinia'
 import { useStore } from '@/store'
 
@@ -83,6 +84,8 @@ export default {
     this.checkFirstRun(settings)
 
     axios.patch('/serversettings', { 'has-asked-for-password-protection': true })
+
+    createServerStatus()
   }
 }
 </script>
